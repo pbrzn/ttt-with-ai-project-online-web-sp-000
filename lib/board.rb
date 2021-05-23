@@ -23,8 +23,6 @@ class Board
     cells[input.to_i-1]
   end
   
-  #---Fix #update to maintain DRY principle---#
-  
   def update(input, player)
     cells[input.to_i-1] = player.token
     self.cells
@@ -50,7 +48,7 @@ class Board
   end
   
   def valid_move?(input)
-    true if input.to_i>=1 && input.to_i<=9 && !self.taken?(input)
+    true if input.to_i.between?(1,9) && !self.taken?(input)
   end
 end
     
